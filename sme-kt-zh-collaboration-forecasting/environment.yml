@@ -1,0 +1,6 @@
+name: sme-kt-zh-collaboration-forecasting
+dependencies:
+  - python~=3.10.14
+  - pip
+  - pip:
+    - -r requirements.txt

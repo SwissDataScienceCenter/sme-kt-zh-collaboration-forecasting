@@ -1,0 +1,5 @@
+-e .
+notebook==7.4.4
+pre-commit==4.2.0
+pytest==8.4.1
+ruff==0.12.3
