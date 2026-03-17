@@ -8,6 +8,7 @@ from sksurv.ensemble import RandomSurvivalForest
 
 # Shared pipeline helpers
 
+
 def filter_for_n_orders(df: pd.DataFrame, n: int) -> pd.DataFrame:
     """Keep only customers with at least a minimum number of orders.
 
@@ -24,7 +25,9 @@ def filter_for_n_orders(df: pd.DataFrame, n: int) -> pd.DataFrame:
     return df[df["customer"].isin(keep_customers)].copy()
 
 
-def create_test_train(df: pd.DataFrame, cutoff_date: str) -> tuple[pd.DataFrame, pd.DataFrame]:
+def create_test_train(
+    df: pd.DataFrame, cutoff_date: str
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Split transaction data into train and test sets by date.
 
     Args:
@@ -80,7 +83,9 @@ def prepare_data(df: pd.DataFrame, cutoff_date: str) -> pd.DataFrame:
     # 3. Combine.
     # Drop rows where duration is NaN (this happens on the last actual purchase row,
     # which is now represented by the censored row we just built).
-    final_df = pd.concat([df.dropna(subset=["duration"]), last_purchases], ignore_index=True)
+    final_df = pd.concat(
+        [df.dropna(subset=["duration"]), last_purchases], ignore_index=True
+    )
 
     # Clean up: remove 0 or negative durations (same-day orders or orders past cutoff)
     final_df = final_df[final_df["duration"] > 0]
@@ -88,7 +93,9 @@ def prepare_data(df: pd.DataFrame, cutoff_date: str) -> pd.DataFrame:
     return final_df
 
 
-def real_priority_list_from_observed_events(df: pd.DataFrame, customer_col: str = "customer") -> pd.DataFrame:
+def real_priority_list_from_observed_events(
+    df: pd.DataFrame, customer_col: str = "customer"
+) -> pd.DataFrame:
     """Build the observed priority ranking from realized next-order times.
 
     Args:
@@ -107,15 +114,17 @@ def real_priority_list_from_observed_events(df: pd.DataFrame, customer_col: str 
 
     per_customer = (
         observed.groupby(customer_col, as_index=False)
-                .agg(true_time=("duration", "min"))
-                .sort_values("true_time", ascending=True)
-                .reset_index(drop=True)
+        .agg(true_time=("duration", "min"))
+        .sort_values("true_time", ascending=True)
+        .reset_index(drop=True)
     )
     per_customer["true_rank"] = per_customer.index + 1
     return per_customer
 
 
-def summarize_top_k_predictions(priority_df: pd.DataFrame, top_k: int) -> dict[str, float]:
+def summarize_top_k_predictions(
+    priority_df: pd.DataFrame, top_k: int
+) -> dict[str, float]:
     """Summarize overlap between predicted and realized top-k customer ranks.
 
     Args:
@@ -139,7 +148,9 @@ def summarize_top_k_predictions(priority_df: pd.DataFrame, top_k: int) -> dict[s
     }
 
 
-def comparison_row(model_name: str, c_index: float, ranking_summary: dict[str, float]) -> dict[str, float | str]:
+def comparison_row(
+    model_name: str, c_index: float, ranking_summary: dict[str, float]
+) -> dict[str, float | str]:
     """Build one row for a model-comparison table."""
     return {
         "model": model_name,
@@ -152,6 +163,7 @@ def comparison_row(model_name: str, c_index: float, ranking_summary: dict[str, f
 
 # Cox helpers
 
+
 def c_index_on_test_via_score(cph: CoxPHFitter, test_final: pd.DataFrame) -> float:
     """Compute the concordance index using lifelines built-in scoring.
 
@@ -162,7 +174,9 @@ def c_index_on_test_via_score(cph: CoxPHFitter, test_final: pd.DataFrame) -> flo
     Returns:
         Concordance index computed by `lifelines` on the provided test data.
     """
-    return cph.score(test_final.reset_index(drop=True), scoring_method="concordance_index")
+    return cph.score(
+        test_final.reset_index(drop=True), scoring_method="concordance_index"
+    )
 
 
 def c_index_on_test_manual(cph: CoxPHFitter, test_final: pd.DataFrame) -> float:
@@ -187,7 +201,9 @@ def c_index_on_test_manual(cph: CoxPHFitter, test_final: pd.DataFrame) -> float:
     )
 
 
-def predicted_priority_list(cph: CoxPHFitter, df: pd.DataFrame, customer_col: str = "customer") -> pd.DataFrame:
+def predicted_priority_list(
+    cph: CoxPHFitter, df: pd.DataFrame, customer_col: str = "customer"
+) -> pd.DataFrame:
     """Rank customers by predicted urgency to place their next order.
 
     Args:
@@ -219,7 +235,9 @@ def predicted_priority_list(cph: CoxPHFitter, df: pd.DataFrame, customer_col: st
     return per_customer
 
 
-def predicted_vs_real_priorities(cph: CoxPHFitter, test_final: pd.DataFrame, customer_col: str = "customer") -> pd.DataFrame:
+def predicted_vs_real_priorities(
+    cph: CoxPHFitter, test_final: pd.DataFrame, customer_col: str = "customer"
+) -> pd.DataFrame:
     """Compare predicted customer ranks against realized ordering ranks.
 
     Args:
@@ -232,13 +250,18 @@ def predicted_vs_real_priorities(cph: CoxPHFitter, test_final: pd.DataFrame, cus
         with observed events in the test set.
     """
     pred = predicted_priority_list(cph, test_final, customer_col=customer_col)
-    true = real_priority_list_from_observed_events(test_final, customer_col=customer_col)
+    true = real_priority_list_from_observed_events(
+        test_final, customer_col=customer_col
+    )
     return true.merge(pred, on=customer_col, how="left").sort_values("true_rank")
 
 
 # AFT helpers
 
-def predicted_priority_list_aft(model: Any, df: pd.DataFrame, customer_col: str = "customer") -> pd.DataFrame:
+
+def predicted_priority_list_aft(
+    model: Any, df: pd.DataFrame, customer_col: str = "customer"
+) -> pd.DataFrame:
     """Rank customers by predicted urgency using an AFT model.
 
     Args:
@@ -266,7 +289,9 @@ def predicted_priority_list_aft(model: Any, df: pd.DataFrame, customer_col: str 
     return per_customer
 
 
-def predicted_vs_real_priorities_aft(model: Any, test_final: pd.DataFrame, customer_col: str = "customer") -> pd.DataFrame:
+def predicted_vs_real_priorities_aft(
+    model: Any, test_final: pd.DataFrame, customer_col: str = "customer"
+) -> pd.DataFrame:
     """Compare AFT-predicted customer ranks against realized ordering ranks.
 
     Args:
@@ -279,13 +304,18 @@ def predicted_vs_real_priorities_aft(model: Any, test_final: pd.DataFrame, custo
         with observed events in the test set.
     """
     pred = predicted_priority_list_aft(model, test_final, customer_col=customer_col)
-    true = real_priority_list_from_observed_events(test_final, customer_col=customer_col)
+    true = real_priority_list_from_observed_events(
+        test_final, customer_col=customer_col
+    )
     return true.merge(pred, on=customer_col, how="left").sort_values("true_rank")
 
 
 # RSF helpers
 
-def c_index_rsf(rsf: RandomSurvivalForest, X_test: pd.DataFrame, test_final: pd.DataFrame) -> float:
+
+def c_index_rsf(
+    rsf: RandomSurvivalForest, X_test: pd.DataFrame, test_final: pd.DataFrame
+) -> float:
     """Compute the concordance index for a Random Survival Forest model.
 
     Args:
@@ -370,6 +400,10 @@ def predicted_vs_real_priorities_rsf(
         DataFrame joining true and predicted customer rankings for customers
         with observed events in the test set.
     """
-    pred = predicted_priority_list_rsf(rsf, test_final, train_columns, features, customer_col=customer_col)
-    true = real_priority_list_from_observed_events(test_final, customer_col=customer_col)
+    pred = predicted_priority_list_rsf(
+        rsf, test_final, train_columns, features, customer_col=customer_col
+    )
+    true = real_priority_list_from_observed_events(
+        test_final, customer_col=customer_col
+    )
     return true.merge(pred, on=customer_col, how="left").sort_values("true_rank")
