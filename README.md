@@ -23,7 +23,7 @@ The `data/` directory contains two files:
 | `sales_df.csv` | Transaction-level sales records with customer IDs, dates, and customer category/type attributes |
 | `feiertage.csv` | Swiss public holiday calendar used as an external covariate |
 
-> **Note:** Both files contain **anonymized synthetic data**. The data is generated to reflect the statistical properties and patterns of real sales transactions, including realistic customer ordering cadences, seasonal effects, and B2B/B2C customer mix. It does not contain any personal or commercially sensitive information.
+> **Note:** `sales_df` contains **synthetic data**. The data is generated to reflect the statistical properties and patterns of real sales transactions, including realistic customer ordering cadences, seasonal effects, and B2B/B2C customer mix. It does not contain any personal or commercially sensitive information.
 
 ---
 
@@ -88,7 +88,14 @@ Helper code is organized under `src/sme_kt_zh_collaboration_forecasting/`:
 
 ## Installation
 
-Install pinned development dependencies using:
+**Important:** The project uses [`uv`](https://github.com/astral-sh/uv) for dependency management. A `uv.lock` file is included for fully reproducible installs. To use it:
+>
+> ```bash
+> uv sync
+> ```
+
+
+Alternative installation methods follow:
 
 ```bash
 pip install -r requirements.txt
@@ -105,12 +112,6 @@ Alternatively, if you are using an existing environment, you can install the mod
 ```bash
 pip install -e .
 ```
-
-> **Important:** The project uses [`uv`](https://github.com/astral-sh/uv) for dependency management. A `uv.lock` file is included for fully reproducible installs. To use it:
->
-> ```bash
-> uv sync
-> ```
 
 ---
 
