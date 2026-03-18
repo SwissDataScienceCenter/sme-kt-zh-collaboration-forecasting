@@ -7,7 +7,7 @@ name = "sme_kt_zh_collaboration_forecasting"
 
 description = ""
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "autogluon>=1.5.0",
     "dotenv>=0.9.9",
@@ -33,7 +33,7 @@ dynamic = ["version"]
 version = {attr = "sme_kt_zh_collaboration_forecasting.__version__"}
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py311"
 line-length = 88
 
 [tool.ruff.lint]
