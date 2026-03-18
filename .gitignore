@@ -19,8 +19,3 @@ autogluon*
 
 # archive folder if present
 archive
-
-#for now
-data*
-
-tests
