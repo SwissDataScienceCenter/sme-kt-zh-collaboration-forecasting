@@ -98,11 +98,13 @@ Helper code is organized under `src/sme_kt_zh_collaboration_forecasting/`:
 
 ## Installation
 
-**Important:** The project uses [`uv`](https://github.com/astral-sh/uv) for dependency management. A `uv.lock` file is included for fully reproducible installs. To use it:
+**Important:** The project uses [`uv`](https://github.com/astral-sh/uv) for dependency management. To set up the environment:
 >
 > ```bash
 > uv sync
 > ```
+
+And follow `uv` instructions to activate the virtual environment or use this virtual environment in the example notebooks.
 
 
 Alternative installation methods follow:
