@@ -144,3 +144,6 @@ Unit tests (via [pytest](https://pytest.org/)) can be run locally:
 ```bash
 pytest
 ```
+
+## Lincense
+Licensed under the [MIT License](LICENSE)
