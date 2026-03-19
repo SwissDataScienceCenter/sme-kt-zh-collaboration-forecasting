@@ -1,9 +1,7 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import plotly.express as px
 import seaborn as sns
-from scipy import stats
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.seasonal import MSTL
 from statsmodels.tsa.stattools import adfuller, kpss
@@ -263,96 +261,6 @@ def perform_general_sales_eda(df: pd.DataFrame):
     plt.show()
 
     return daily_series, mstl_res, monthly_series
-
-
-def simple_daily_correlation(sales_df, holiday_df, max_lag):
-    """Compute lagged correlation between daily sales counts and holidays.
-
-    The function converts transaction data into a daily sales-count time series
-    and creates a binary holiday indicator (1 on holiday dates, 0 otherwise).
-    It then computes Pearson correlation for a range of lags by shifting the
-    *sales* series relative to the holiday indicator.
-
-    A positive lag corresponds to shifting sales forward in time
-    (i.e., comparing holidays to sales that occur *after* the holiday), while a
-    negative lag compares holidays to sales *before* the holiday.
-
-    Args:
-        sales_df: Transaction-level sales data with a `date` column.
-        holiday_df: Holiday calendar with a `date` column. Any date present is
-            treated as a holiday (multiple holidays on the same date are
-            collapsed into a single indicator).
-        max_lag: Maximum lag (in days) to test in both directions.
-
-    Returns:
-        best: A single-row Series from the results table corresponding to the
-            lag with the largest absolute correlation. Contains keys
-            `lag`, `correlation`, and `p_value`.
-        results_df: DataFrame with one row per lag and columns
-            [`lag`, `correlation`, `p_value`].
-
-    Notes:
-        - The p-values are based on the standard t-test for Pearson
-          correlation and do not account for autocorrelation, multiple testing
-          across lags, or non-stationarity.
-        - This is a quick diagnostic, not a causal analysis.
-    """
-
-    # Ensure datetime.
-    sales_df = sales_df.copy()
-    holidays_df = holiday_df.copy()
-
-    # Removing fully closed holidays here would bias the interpretation, so the
-    # optional exclusion logic is left commented for experimentation.
-    # holidays_df = holidays_df.loc[~holidays_df["holiday name"].isin(["Bundesfeier", "Neujahrstag", "Berchtoldstag", "Weihnachtstag", "Stephanstag"])]
-
-    sales_df["date"] = pd.to_datetime(sales_df["date"])
-    holidays_df["date"] = pd.to_datetime(holidays_df["date"])
-
-    # Aggregate sales to daily counts.
-    daily_sales = sales_df.groupby("date").size()
-
-    # Create holiday indicator (1 if holiday, 0 otherwise).
-    date_range = pd.date_range(
-        min(daily_sales.index.min(), holidays_df["date"].min()),
-        max(daily_sales.index.max(), holidays_df["date"].max()),
-        freq="D",
-    )
-
-    sales_series = daily_sales.reindex(date_range, fill_value=0)
-    holiday_series = pd.Series(0, index=date_range)
-    holiday_series.loc[holiday_series.index.isin(holidays_df["date"])] = 1
-
-    # Find the optimal lag by testing all lags.
-    results = []
-
-    for lag in range(-max_lag, max_lag + 1):
-        if lag == 0:
-            corr = sales_series.corr(holiday_series)
-        else:
-            corr = sales_series.shift(lag).corr(holiday_series)
-
-        # Calculate the p-value.
-        n = len(sales_series.dropna())
-        if not np.isnan(corr) and abs(corr) < 1:
-            t_stat = corr * np.sqrt((n - 2) / (1 - corr**2))
-            p_value = 2 * (1 - stats.t.cdf(abs(t_stat), n - 2))
-        else:
-            p_value = 1.0
-
-        results.append(
-            {
-                "lag": lag,
-                "correlation": corr,
-                "p_value": p_value,
-            }
-        )
-
-    # Find the best lag (highest absolute correlation).
-    results_df = pd.DataFrame(results)
-    best_idx = results_df["correlation"].abs().idxmax()
-    best = results_df.loc[best_idx]
-    return best, results_df
 
 
 # ____________________________________________________________________
