@@ -1,0 +1,145 @@
+Year,Date,Holiday Name,Scope,Day of Week
+2015,2015-01-01,Neujahrstag,Cantonal,Thursday
+2015,2015-01-02,Berchtoldstag,Cantonal,Friday
+2015,2015-04-03,Karfreitag,Cantonal,Friday
+2015,2015-04-06,Ostermontag,Cantonal,Monday
+2015,2015-04-13,Sechseläuten,Local (City),Monday
+2015,2015-05-01,Tag der Arbeit,Cantonal,Friday
+2015,2015-05-14,Auffahrt,Cantonal,Thursday
+2015,2015-05-25,Pfingstmontag,Cantonal,Monday
+2015,2015-08-01,Bundesfeier,Federal,Saturday
+2015,2015-09-14,Knabenschiessen,Local (City),Monday
+2015,2015-12-25,Weihnachtstag,Cantonal,Friday
+2015,2015-12-26,Stephanstag,Cantonal,Saturday
+2016,2016-01-01,Neujahrstag,Cantonal,Friday
+2016,2016-01-02,Berchtoldstag,Cantonal,Saturday
+2016,2016-03-25,Karfreitag,Cantonal,Friday
+2016,2016-03-28,Ostermontag,Cantonal,Monday
+2016,2016-04-18,Sechseläuten,Local (City),Monday
+2016,2016-05-01,Tag der Arbeit,Cantonal,Sunday
+2016,2016-05-05,Auffahrt,Cantonal,Thursday
+2016,2016-05-16,Pfingstmontag,Cantonal,Monday
+2016,2016-08-01,Bundesfeier,Federal,Monday
+2016,2016-09-12,Knabenschiessen,Local (City),Monday
+2016,2016-12-25,Weihnachtstag,Cantonal,Sunday
+2016,2016-12-26,Stephanstag,Cantonal,Monday
+2017,2017-01-01,Neujahrstag,Cantonal,Sunday
+2017,2017-01-02,Berchtoldstag,Cantonal,Monday
+2017,2017-04-14,Karfreitag,Cantonal,Friday
+2017,2017-04-17,Ostermontag,Cantonal,Monday
+2017,2017-04-24,Sechseläuten,Local (City),Monday
+2017,2017-05-01,Tag der Arbeit,Cantonal,Monday
+2017,2017-05-25,Auffahrt,Cantonal,Thursday
+2017,2017-06-05,Pfingstmontag,Cantonal,Monday
+2017,2017-08-01,Bundesfeier,Federal,Tuesday
+2017,2017-09-11,Knabenschiessen,Local (City),Monday
+2017,2017-12-25,Weihnachtstag,Cantonal,Monday
+2017,2017-12-26,Stephanstag,Cantonal,Tuesday
+2018,2018-01-01,Neujahrstag,Cantonal,Monday
+2018,2018-01-02,Berchtoldstag,Cantonal,Tuesday
+2018,2018-03-30,Karfreitag,Cantonal,Friday
+2018,2018-04-02,Ostermontag,Cantonal,Monday
+2018,2018-04-16,Sechseläuten,Local (City),Monday
+2018,2018-05-01,Tag der Arbeit,Cantonal,Tuesday
+2018,2018-05-10,Auffahrt,Cantonal,Thursday
+2018,2018-05-21,Pfingstmontag,Cantonal,Monday
+2018,2018-08-01,Bundesfeier,Federal,Wednesday
+2018,2018-09-10,Knabenschiessen,Local (City),Monday
+2018,2018-12-25,Weihnachtstag,Cantonal,Tuesday
+2018,2018-12-26,Stephanstag,Cantonal,Wednesday
+2019,2019-01-01,Neujahrstag,Cantonal,Tuesday
+2019,2019-01-02,Berchtoldstag,Cantonal,Wednesday
+2019,2019-04-19,Karfreitag,Cantonal,Friday
+2019,2019-04-22,Ostermontag,Cantonal,Monday
+2019,2019-04-08,Sechseläuten,Local (City),Monday
+2019,2019-05-01,Tag der Arbeit,Cantonal,Wednesday
+2019,2019-05-30,Auffahrt,Cantonal,Thursday
+2019,2019-06-10,Pfingstmontag,Cantonal,Monday
+2019,2019-08-01,Bundesfeier,Federal,Thursday
+2019,2019-09-09,Knabenschiessen,Local (City),Monday
+2019,2019-12-25,Weihnachtstag,Cantonal,Wednesday
+2019,2019-12-26,Stephanstag,Cantonal,Thursday
+2020,2020-01-01,Neujahrstag,Cantonal,Wednesday
+2020,2020-01-02,Berchtoldstag,Cantonal,Thursday
+2020,2020-04-10,Karfreitag,Cantonal,Friday
+2020,2020-04-13,Ostermontag,Cantonal,Monday
+2020,2020-04-20,Sechseläuten,Local (City),Monday
+2020,2020-05-01,Tag der Arbeit,Cantonal,Friday
+2020,2020-05-21,Auffahrt,Cantonal,Thursday
+2020,2020-06-01,Pfingstmontag,Cantonal,Monday
+2020,2020-08-01,Bundesfeier,Federal,Saturday
+2020,2020-09-14,Knabenschiessen,Local (City),Monday
+2020,2020-12-25,Weihnachtstag,Cantonal,Friday
+2020,2020-12-26,Stephanstag,Cantonal,Saturday
+2021,2021-01-01,Neujahrstag,Cantonal,Friday
+2021,2021-01-02,Berchtoldstag,Cantonal,Saturday
+2021,2021-04-02,Karfreitag,Cantonal,Friday
+2021,2021-04-05,Ostermontag,Cantonal,Monday
+2021,2021-04-19,Sechseläuten,Local (City),Monday
+2021,2021-05-01,Tag der Arbeit,Cantonal,Saturday
+2021,2021-05-13,Auffahrt,Cantonal,Thursday
+2021,2021-05-24,Pfingstmontag,Cantonal,Monday
+2021,2021-08-01,Bundesfeier,Federal,Sunday
+2021,2021-09-13,Knabenschiessen,Local (City),Monday
+2021,2021-12-25,Weihnachtstag,Cantonal,Saturday
+2021,2021-12-26,Stephanstag,Cantonal,Sunday
+2022,2022-01-01,Neujahrstag,Cantonal,Saturday
+2022,2022-01-02,Berchtoldstag,Cantonal,Sunday
+2022,2022-04-15,Karfreitag,Cantonal,Friday
+2022,2022-04-18,Ostermontag,Cantonal,Monday
+2022,2022-04-25,Sechseläuten,Local (City),Monday
+2022,2022-05-01,Tag der Arbeit,Cantonal,Sunday
+2022,2022-05-26,Auffahrt,Cantonal,Thursday
+2022,2022-06-06,Pfingstmontag,Cantonal,Monday
+2022,2022-08-01,Bundesfeier,Federal,Monday
+2022,2022-09-12,Knabenschiessen,Local (City),Monday
+2022,2022-12-25,Weihnachtstag,Cantonal,Sunday
+2022,2022-12-26,Stephanstag,Cantonal,Monday
+2023,2023-01-01,Neujahrstag,Cantonal,Sunday
+2023,2023-01-02,Berchtoldstag,Cantonal,Monday
+2023,2023-04-07,Karfreitag,Cantonal,Friday
+2023,2023-04-10,Ostermontag,Cantonal,Monday
+2023,2023-04-17,Sechseläuten,Local (City),Monday
+2023,2023-05-01,Tag der Arbeit,Cantonal,Monday
+2023,2023-05-18,Auffahrt,Cantonal,Thursday
+2023,2023-05-29,Pfingstmontag,Cantonal,Monday
+2023,2023-08-01,Bundesfeier,Federal,Tuesday
+2023,2023-09-11,Knabenschiessen,Local (City),Monday
+2023,2023-12-25,Weihnachtstag,Cantonal,Monday
+2023,2023-12-26,Stephanstag,Cantonal,Tuesday
+2024,2024-01-01,Neujahrstag,Cantonal,Monday
+2024,2024-01-02,Berchtoldstag,Cantonal,Tuesday
+2024,2024-03-29,Karfreitag,Cantonal,Friday
+2024,2024-04-01,Ostermontag,Cantonal,Monday
+2024,2024-04-15,Sechseläuten,Local (City),Monday
+2024,2024-05-01,Tag der Arbeit,Cantonal,Wednesday
+2024,2024-05-09,Auffahrt,Cantonal,Thursday
+2024,2024-05-20,Pfingstmontag,Cantonal,Monday
+2024,2024-08-01,Bundesfeier,Federal,Thursday
+2024,2024-09-09,Knabenschiessen,Local (City),Monday
+2024,2024-12-25,Weihnachtstag,Cantonal,Wednesday
+2024,2024-12-26,Stephanstag,Cantonal,Thursday
+2025,2025-01-01,Neujahrstag,Cantonal,Wednesday
+2025,2025-01-02,Berchtoldstag,Cantonal,Thursday
+2025,2025-04-18,Karfreitag,Cantonal,Friday
+2025,2025-04-21,Ostermontag,Cantonal,Monday
+2025,2025-04-28,Sechseläuten,Local (City),Monday
+2025,2025-05-01,Tag der Arbeit,Cantonal,Thursday
+2025,2025-05-29,Auffahrt,Cantonal,Thursday
+2025,2025-06-09,Pfingstmontag,Cantonal,Monday
+2025,2025-08-01,Bundesfeier,Federal,Friday
+2025,2025-09-15,Knabenschiessen,Local (City),Monday
+2025,2025-12-25,Weihnachtstag,Cantonal,Thursday
+2025,2025-12-26,Stephanstag,Cantonal,Friday
+2026,2026-01-01,Neujahrstag,Cantonal,Thursday
+2026,2026-01-02,Berchtoldstag,Cantonal,Friday
+2026,2026-04-03,Karfreitag,Cantonal,Friday
+2026,2026-04-06,Ostermontag,Cantonal,Monday
+2026,2026-04-20,Sechseläuten,Local (City),Monday
+2026,2026-05-01,Tag der Arbeit,Cantonal,Friday
+2026,2026-05-14,Auffahrt,Cantonal,Thursday
+2026,2026-05-25,Pfingstmontag,Cantonal,Monday
+2026,2026-08-01,Bundesfeier,Federal,Saturday
+2026,2026-09-14,Knabenschiessen,Local (City),Monday
+2026,2026-12-25,Weihnachtstag,Cantonal,Friday
+2026,2026-12-26,Stephanstag,Cantonal,Saturday

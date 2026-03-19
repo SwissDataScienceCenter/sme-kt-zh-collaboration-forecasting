@@ -4,18 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sme_kt_zh_collaboration_forecasting"
-authors = [
-    # TODO configure authors
-    # { name = "Jane Smith", email = "jane.smith@example.com" },
-    # { name = "John Doe", email = "john.doe@example.com" },
-]
+license = "MIT"
 description = ""
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
-    # TODO configure install dependencies
-    # "numpy~=2.0",
-    # "pandas~=2.0",
+    "autogluon>=1.5.0",
+    "dotenv>=0.9.9",
+    "ipykernel>=7.2.0",
+    "lifelines>=0.30.1",
+    "nbformat>=5.10.4",
+    "notebook>=7.5.4",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.3",
+    "plotly>=6.5.2",
+    "pre-commit>=4.5.1",
+    "pytest>=9.0.2",
+    "ruff>=0.15.2",
+    "scikit-learn>=1.7.2",
+    "scikit-survival>=0.25.0",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.6",
+    "tqdm>=4.67.3",
 ]
 dynamic = ["version"]
 
@@ -23,7 +33,7 @@ dynamic = ["version"]
 version = {attr = "sme_kt_zh_collaboration_forecasting.__version__"}
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py311"
 line-length = 88
 
 [tool.ruff.lint]

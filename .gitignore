@@ -9,3 +9,13 @@
 
 # OSX-specific
 .DS_Store
+
+# uv files
+uv.lock
+.venv
+
+#autogluon training runs
+autogluon*
+
+# archive folder if present
+archive
