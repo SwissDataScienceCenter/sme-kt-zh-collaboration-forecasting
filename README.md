@@ -1,6 +1,16 @@
-# SME-KT-ZH Collaboration Forecasting
+# SME-KT-ZH: Collaboration Forecasting
 
-This project applies **survival analysis** to B2B/B2C sales transaction data to predict when customers are likely to place their next order. The output is a ranked priority list of customers, enabling proactive outreach and collaboration planning.
+This project leverages **survival analysis** on B2B and B2C sales transaction data to predict customer re-order timing. By estimating when a customer is likely to return, the model generates a ranked priority list to drive proactive outreach and strategic collaboration planning.
+
+### 🎯 Scope & Purpose
+* **What this is:** A prototype developed during a week-long workshop within the [Canton of Zurich SME program](https://www.datascience.ch/innovation/canton-zurich-sme-program) (Step 2: *Practical Sessions and Prototyping*).
+* **The Goal:** To provide a foundation for understanding survival analysis in a commercial setting.
+* **Open Source:** You are encouraged to use this codebase as a starting point for your own data and experiments.
+
+---
+
+### ⚠️ Disclaimer
+**This project is a proof-of-concept.** The code is intended for educational and prototyping purposes only. It is **not** production-ready and should not be deployed into live systems without significant refactoring and robust testing.
 
 ---
 
